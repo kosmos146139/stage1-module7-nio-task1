@@ -21,19 +21,18 @@ public class FileReader {
             buffer.flip();
             String text = null;
 
-            for (int i = 0;i<fileSize;i++){
-
-                text +=String.valueOf((char) buffer.get());
-            }
+            for (int i = 0;i<fileSize;i++){text += String.valueOf((char) buffer.get());}
+            assert text != null;
             text = text.replace("\n"," ");
             text = text.replace("\r","");
             strings = text.split(" ");
 
         }
-        catch(Exception ex)
+        catch(Exception ignored)
         {
-            ex.getMessage();
+
         }
+        assert strings != null;
         String name = strings[1];
         Integer age = Integer.valueOf(strings[3]);
         String email = strings[5];
